@@ -37,6 +37,10 @@ resource "kubernetes_deployment" "nginx" {
       }
 
       spec {
+
+        automount_service_account_token = false
+        enable_service_links            = false
+
         container {
           name  = "nginx"
           image = var.nginx_image
